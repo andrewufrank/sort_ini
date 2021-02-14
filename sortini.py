@@ -3,6 +3,7 @@
 __version__ = '$Id: sort_ini.py 543 2008-12-19 13:44:59Z mn $'
 
 # author: Michal Niklas
+# translated automatically to python 3 - andrew u frank
 
 import sys
 
@@ -27,19 +28,19 @@ def sort_ini(fname):
 				except KeyError:
 					sections[section] = [line, ]
 	if sections:
-		sk = sections.keys()
+		sk = list(sections.keys())
 		sk.sort()
 		for k in sk:
 			vals = sections[k]
 			vals.sort()
-			print k
-			print '\n'.join(vals)
-			print
+			print(k)
+			print('\n'.join(vals))
+			print()
 
 
 if '--version' in sys.argv:
-	print __version__
+	print(__version__)
 elif len(sys.argv) < 2:
-	print USAGE
+	print(USAGE)
 else:
 	sort_ini(sys.argv[1])
